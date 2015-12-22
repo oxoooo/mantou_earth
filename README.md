@@ -12,3 +12,14 @@
 4. 调整比例，打开 系统偏好设置 －》 桌面与屏幕保护程序 －》调整成类似下图
 
 ![](demo.png)
+
+## 卸载说明
+
+1. 打开终端
+2. 运行下面的命令
+
+```
+launchctl unload ~/Library/LaunchAgentsooo.oxo.apps.earth.launchctl.plist
+rm ~/Library/LaunchAgentsooo.oxo.apps.earth.launchctl.plist
+rm -rf ~/.mantou_earth
+```
