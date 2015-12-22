@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+
+home_path = ENV['HOME'] + '/.mantou_earth'
+
+FileUtils.mkdir_p home_path
+
+puts "复制文件"
+
+system "cp #{File.dirname(__FILE__)}/main #{home_path}/main"
+system "cp #{File.dirname(__FILE__)}/run #{home_path}/run"
+
+puts "生成定时任务，启动服务"
+
+template = <<-XML
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>ooo.oxo.apps.earth.launchctl.plist</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>#{home_path}/run</string>
+    </array>
+    <key>KeepAlive</key>
+    <false/>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StartInterval</key>
+    <integer>600</integer>
+    <key>StandardOutPath</key>
+    <string>#{home_path}/out.log</string>
+    <key>StandardErrorPath</key>
+    <string>#{home_path}/err.log</string>
+</dict>
+</plist>
+XML
+
+system "echo '#{template}' > #{home_path}/ooo.oxo.apps.earth.launchctl.plist"
+system "cp #{home_path}/ooo.oxo.apps.earth.launchctl.plist ~/Library/LaunchAgents/."
+system "launchctl load ~/Library/LaunchAgents/ooo.oxo.apps.earth.launchctl.plist"
+system "launchctl start ~/Library/LaunchAgents/ooo.oxo.apps.earth.launchctl.plist"
+
+
+puts "完成了，现在去看看桌面吧，白需要你手动调一下壁纸，详细看看说明文档"

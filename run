@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+path = ENV['HOME'] + '/.mantou_earth'
+puts path
+
+IO.popen("#{path}/main") { |f| 
+  name = f.gets
+  if name == "404"
+    return
+  end
+  system "cd #{path} && rm `ls *.jpg | grep -v '#{name.split('/').last}'`"
+  system "osascript -e 'tell application \"Finder\" to set desktop picture to POSIX file \"#{name}\"'"
+}
