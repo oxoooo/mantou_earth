@@ -1,5 +1,9 @@
 ## MAC 馒头地球
 
+## 下载地址
+
+[http://7d9i8r.com1.z0.glb.clouddn.com/mac_mantou_earch.zip](http://7d9i8r.com1.z0.glb.clouddn.com/mac_mantou_earch.zip)
+
 ## 安装说明
 
 1. 下载安装包
