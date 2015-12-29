@@ -19,7 +19,17 @@
 2. 运行下面的命令
 
 ```
-launchctl unload ~/Library/LaunchAgentsooo.oxo.apps.earth.launchctl.plist
-rm ~/Library/LaunchAgentsooo.oxo.apps.earth.launchctl.plist
+launchctl unload ~/Library/LaunchAgents/ooo.oxo.apps.earth.launchctl.plist
+rm ~/Library/LaunchAgents/ooo.oxo.apps.earth.launchctl.plist
 rm -rf ~/.mantou_earth
 ```
+
+或者下载：
+
+[地址](http://7d9i8r.com1.z0.glb.clouddn.com/uninstall.zip)
+
+然后运行里面的uninstall 脚本即可
+
+重要说明：
+
+卸载这里是我的失误，写少了一个／号，给大家造成麻烦了。

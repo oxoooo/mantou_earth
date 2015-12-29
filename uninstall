@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+home_path = ENV['HOME'] + '/.mantou_earth'
+
+system("launchctl unload #{ENV['HOME']}/Library/LaunchAgents/ooo.oxo.apps.earth.launchctl.plist")
+system("rm #{ENV['HOME']}/Library/LaunchAgents/ooo.oxo.apps.earth.launchctl.plist")
+system("rm -rf #{home_path}")
