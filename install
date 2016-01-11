@@ -6,12 +6,12 @@ home_path = ENV['HOME'] + '/.mantou_earth'
 
 FileUtils.mkdir_p home_path
 
-puts "复制文件"
+puts "copy file"
 
 system "cp #{File.dirname(__FILE__)}/main #{home_path}/main"
 system "cp #{File.dirname(__FILE__)}/run #{home_path}/run"
 
-puts "生成定时任务，启动服务"
+puts "gen generate regular tasks and start server"
 
 template = <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -44,4 +44,4 @@ system "launchctl load ~/Library/LaunchAgents/ooo.oxo.apps.earth.launchctl.plist
 system "launchctl start ~/Library/LaunchAgents/ooo.oxo.apps.earth.launchctl.plist"
 
 
-puts "完成了，现在去看看桌面吧，白需要你手动调一下壁纸，详细看看说明文档"
+puts "complete please read README.md"
